@@ -61,6 +61,18 @@ Weka에서 학습하기 위해 Python 파일을 이용하여 ARFF 형식으로 �
 
 학습 완료 후 `.model` 형식으로 저장하여 Spring Boot 서버에 적용할 예정입니다.
 
+### 4. 한국어 변환 처리
+
+**문제점:**
+- Weka가 버전에 따라 한국어를 인식하지 못하여 모델 예측 결과가 영어로 출력됨
+
+**해결 방법:**
+- 매핑 테이블(`korean_to_english_mapping.md`)을 이용하여 Spring 서버에서 영어 예측 결과를 한국어로 변환
+- Weka 모델이 영어 클래스 이름으로 예측한 결과를 받아서, 매핑 테이블을 참조하여 한국어로 변환 후 클라이언트에 반환
+
+**참고:**
+- [한국어-영어 매핑 테이블](./korean_to_english_mapping.md)
+
 ---
 
 ## 📈 실험 결과 및 분석
@@ -92,6 +104,7 @@ LMT가 10-fold 교차 검증에서 **63.6028%**로 가장 성능이 좋았습니
 
 - [데이터 분석 노트북](./model_test_analysis.ipynb)
 - [사용한 데이터](https://www.bigdata-culture.kr/bigdata/user/data_market/detail.do?id=599b29a1-bb8d-41a5-8de5-400d2c8d2ba5)
+- [전처리한 데이터](https://drive.google.com/drive/folders/11AZHyVAa7nRHbZuFUGooYsEgrQP_bW7K)
 
 ---
 
